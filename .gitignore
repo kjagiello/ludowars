@@ -1,12 +1,35 @@
+#ant specific
+dist/
+build/
+ 
+#netbeans specific
+client/core
+client/nbproject/*
+!client/nbproject/project.properties
+!client/nbproject/project.xml
+ 
+common/core
+common/nbproject/*
+!common/nbproject/project.properties
+!common/nbproject/project.xml
+
+server/core
+server/nbproject/*
+!server/nbproject/project.properties
+!server/nbproject/project.xml
+
+#java specific
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+ 
+#general swap/backup files
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
+Thumbs.db
+/client/nbproject/private/
+/common/nbproject/private/
+/server/nbproject/private/

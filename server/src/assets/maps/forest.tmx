@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="32" tilewidth="32" tileheight="32" backgroundcolor="#474744">
+ <tileset firstgid="1" name="ludoland" tilewidth="32" tileheight="32">
+  <image source="ludoland.png" width="512" height="512"/>
+  <terraintypes>
+   <terrain name="New Terrain" tile="0"/>
+  </terraintypes>
+  <tile id="130" terrain=",,,0"/>
+  <tile id="131" terrain=",,0,"/>
+  <tile id="146" terrain=",0,,"/>
+  <tile id="147" terrain="0,,,"/>
+  <tile id="211" terrain="0,0,0,"/>
+  <tile id="212" terrain="0,0,,0"/>
+  <tile id="227" terrain="0,,0,"/>
+  <tile id="228" terrain=",0,,0"/>
+  <tile id="243" terrain="0,,0,0"/>
+  <tile id="244" terrain=",0,0,0"/>
+ </tileset>
+ <tileset firstgid="257" name="grass" tilewidth="32" tileheight="32">
+  <image source="spriteSheet1.jpg" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="261" name="TileA1" tilewidth="32" tileheight="32">
+  <image source="TileA1.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="453" name="ground" tilewidth="32" tileheight="32">
+  <image source="ground.png" width="512" height="384"/>
+ </tileset>
+ <layer name="Background" width="40" height="32">
+  <data encoding="base64" compression="zlib">
+   eJy1mNGNwzAMQ5v953I3aDZI5jgUiADiHSk7196HYCe2JVoi7bRjezzGZS9j44v2vEz7M1MshzGH+dXES/33mv0y7c/MYXrbeRn3PouX+upT+zOrueWDOfp2je/yQfdSz2VjUuM71nGOY0NazeEw48TsbKaHVVxuTPlWfJn51vGa/x+1Le5WTOZxx5y059WYd3hQLTU6MFamOHkG/IXzaZ8uB8RN/qiGCqOeP1rrHXvu+Kj7czzat9/70TpwbeHcjZ8UQ/Ex7w6rmp4pzL9yUbErRuYrxSkfPHvpw53NxKd5KPw6dgRfryYO8Z/GT/nW3BDfE36c7rj+RN/lLumx03bFSZiGmUtcs5xWXp1/6vQwdmKey5X6cLrv7Gh8dN8SXUyHIX0XOY2unH+Og9rvYvI5+Tix5s7dsHo+Ou44LiWd6JqZMXcON3XlvoOTnpxOXI47HxWLvjrN3OFOqsdMHw4Hte3OkaPxvcqnseWakjO6hniU+6qRFe50nErW1bZi886pfXS6WG0TR93Z53jBvB6mpY5m/FFdpHHVKnNGXiheF2elhuneuqst9Znw6h32Kfc6baXap7woRs5zHEx3I9sO92pd9Hd30kWq/ap23LykD4cx5c5hSJhW8fHdir5Zf72DP+EfvzX4e7Xzr/j1HX2lO7/L6eyd42r638rlXO0H2ust3Q==
+  </data>
+ </layer>
+ <layer name="Ground" width="40" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzVmEtOwzAQhpNzQNlwC3YRrWDLAsEN6IMrFCqFLS1v1NJNu66AVS9QTsJJ+ltKpJHlcWzHkZ2RPk2VOJPJFztKkydJ8gDySPMreIs4h/Zj6m8NVhFl2d8LOAY9kAZE9PDM+CvHcFHuv3Q8N63D1U41/kz7q8M/c46MjKnrj9ZyQRx/Bm5AH5xb+hOMwR24BxOP/k6LfAWuSaZjqvx9gEcwBTPwpHBYh26RP5n9On+it3cwBwvwBZagA46YelzoevwGP+BX2m6yfm1x6Y8iP9NM5p/pPPfRn4xvf5Qd+AMbzfVU4cuf6v5sC1zvRdP+fODbn86nLU2s37b5q0vb/WWGdVTjLiz6UEVM/rj+Ypl/qgi9fumzh3uHC+mPhvwOl0bg7wAcghMwAEMwArdkjK2/zLEX1+Oq/IX+jxly/ukovaj8id8xher7S0zRlu9Xe6Xu69g=
+  </data>
+ </layer>
+ <layer name="Roof" width="40" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1jkKwkAYhuHE1qXxOB7Afenclwu4dK6dNi6N4g30BnoST+SLWISRgJGB+YX/hYdJk/BVYTxP07SolVFBFTVL3/TxeD9nkQucUeuihz4GNsYZ1THFDI0f3h9ihDEmFnfZao4Fllgh5nbOR1vssMcBSaScLvo9P4SUgpsuuHpy991w92Tt0zRNk5Z5h5P2zzTvcNL2mXc4afvyKKCIEtJu57yKI4EMmmihjY7LUZr2RSccBZznkH0brIWc/9ITyaM8Nw==
+  </data>
+ </layer>
+ <objectgroup name="Colliders" width="40" height="32" visible="0">
+  <object x="996" y="790" width="124" height="40"/>
+  <object x="992" y="671" width="30" height="160"/>
+  <object x="1084" y="671" width="36" height="160"/>
+  <object x="643" y="411" width="58" height="55"/>
+  <object x="192" y="186" width="37" height="160"/>
+  <object x="196" y="305" width="124" height="40"/>
+  <object x="284" y="186" width="36" height="160"/>
+  <object x="324" y="311" width="56" height="32"/>
+  <object x="897" y="801" width="93" height="32"/>
+  <object x="960" y="791" width="31" height="11"/>
+  <object x="999" y="306" width="16" height="14"/>
+  <object x="710" y="424" width="21" height="23"/>
+  <object x="973" y="321" width="72" height="31"/>
+  <object x="966" y="205" width="114" height="83"/>
+  <object x="901" y="191" width="22" height="30"/>
+  <object x="638" y="642" width="30" height="29"/>
+  <object x="421" y="162" width="23" height="27"/>
+  <object x="84" y="68" width="1112" height="47"/>
+  <object x="43" y="71" width="36" height="924"/>
+  <object x="44" y="974" width="1188" height="27"/>
+  <object x="1196" y="67" width="36" height="905"/>
+ </objectgroup>
+</map>
