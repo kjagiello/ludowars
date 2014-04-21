@@ -96,7 +96,7 @@ public class EntityManager {
         
         try {
             r = (EntityRepresentation)(data.representation == null || data.representation.isEmpty() ? null : Class.forName(data.representation).newInstance()); 
-        } catch(ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+        } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | java.lang.RuntimeException e) {
             // this is okay
         }
         

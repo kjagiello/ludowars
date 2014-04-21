@@ -5,27 +5,16 @@
  */
 package ludowars.core;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
-import ludowars.network.GameConnection;
-import ludowars.network.Message;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
-import com.esotericsoftware.kryonet.Server;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import ludowars.controller.EntityController;
-import ludowars.controller.PlayerController;
 import ludowars.controller.PlayerDriver;
-import ludowars.core.Entity;
 import ludowars.model.State;
 import ludowars.network.Network;
-import ludowars.model.CharacterData;
-import ludowars.model.EntityData;
 import ludowars.view.ControlledPlayerRepresentation;
+import ludoserver.core.Core;
 
 /**
  *
@@ -103,15 +92,37 @@ public class NetworkedClient extends Client {
         return S;
     }
     
+    private void startLocalServer() {
+            new Thread("Server") {
+                public void run() {
+                    try {
+                        new ludoserver.core.Core();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }.start();
+    }
+    
+    private boolean connectToServer() {
+        try {
+            client.connect(5000, "localhost", Network.port);
+            return true;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
+    }
+    
     public void connect() {
         new Thread("Connect") {
             public void run() {
-                try {
-                    client.connect(5000, "localhost", Network.port);
-                    // Server communication after connection can go here, or in Listener#connected().
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                    System.exit(1);
+                if (!connectToServer()) {
+                    startLocalServer();
+                    while (!connectToServer()) {}
                 }
             }
         }.start();
