@@ -27,7 +27,7 @@ import ludowars.view.SpriteSheet;
  *
  * @author kjagiello
  */
-public class PlayerLayer extends Layer {
+public class HUDLayer extends Layer {
 
     SpriteSheet misc;
     ImageView heart, weapon, backpack, backpack_open;
@@ -45,7 +45,7 @@ public class PlayerLayer extends Layer {
 
     static final float HEALTH_ANIMATION_TIME = 2f;
 
-    public PlayerLayer() {
+    public HUDLayer() {
     }
 
     @Override

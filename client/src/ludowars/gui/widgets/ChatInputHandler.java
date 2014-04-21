@@ -42,13 +42,6 @@ public class ChatInputHandler extends InputHandler {
                 chat.setInputActive(false);
                 return true;
             }
-
-            // deleting characters
-            if (keycode == Input.Keys.BACKSPACE) {
-                if (bufferLength > 0) {
-                    chat.setInputBuffer(buffer.substring(0, bufferLength - 1));
-                }
-            }
         }
         else {
             if (keycode == Input.Keys.ENTER) {
@@ -56,6 +49,24 @@ public class ChatInputHandler extends InputHandler {
                 return true;
             }
         }
+        return false;
+    }
+
+    @Override
+    public boolean keyDown(int keycode) {
+        String buffer = chat.getInputBuffer();
+        int bufferLength = buffer.length();
+        
+        if (chat.isInputActive()) {
+            // deleting characters
+            if (keycode == Input.Keys.BACKSPACE) {
+                if (bufferLength > 0) {
+                    chat.setInputBuffer(buffer.substring(0, bufferLength - 1));
+                }
+                return true;
+            }
+        }
+        
         return false;
     }
 

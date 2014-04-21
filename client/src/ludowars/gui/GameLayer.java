@@ -60,7 +60,7 @@ public class GameLayer extends Layer {
     @Override
     public void create() {
         // create the player gui
-        layerManager.addLayer(new PlayerLayer());
+        layerManager.addLayer(new HUDLayer());
     }
     
     @Override
