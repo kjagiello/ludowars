@@ -3,6 +3,7 @@ package ludowars.core.gui;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 /**
  *
@@ -12,11 +13,13 @@ public abstract class Screen {
     protected ScreenManager manager;
     protected LayerManager layerManager;
     protected SpriteBatch batch;
+    protected ShapeRenderer sr;
     protected OrthographicCamera camera;
     
     public Screen() {
         layerManager = new LayerManager();
         batch = new SpriteBatch();
+        sr = new ShapeRenderer();
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
@@ -27,7 +30,7 @@ public abstract class Screen {
     public void render() {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        layerManager.render(batch, Gdx.graphics.getDeltaTime());
+        layerManager.render(batch, sr, Gdx.graphics.getDeltaTime());
     }
     
     public void resize(int width, int height) {

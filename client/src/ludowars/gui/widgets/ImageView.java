@@ -9,6 +9,7 @@ package ludowars.gui.widgets;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ImageView extends Widget {
     }
     
     @Override
-    public void render(SpriteBatch batch, float delta) {
+    public void render(SpriteBatch batch, ShapeRenderer sr, float delta) {
         batch.draw(texture, bounds.x, bounds.y);
     }
 }

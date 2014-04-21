@@ -8,6 +8,7 @@ package ludowars.gui.widgets;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import ludowars.view.SpriteSheet;
 
 /**
@@ -35,7 +36,7 @@ public class SpriteSheetView extends ImageView {
     }
     
     @Override
-    public void render(SpriteBatch batch, float delta) {
+    public void render(SpriteBatch batch, ShapeRenderer sr, float delta) {
         batch.draw(region, bounds.x, bounds.y);
     }
 }

@@ -7,6 +7,7 @@
 package ludowars.gui.widgets;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
@@ -34,10 +35,34 @@ abstract public class Widget {
         return bounds;
     }
     
+    public boolean keyUp(int keycode) {
+        if (inputHandler != null) {
+            return inputHandler.keyUp(keycode);
+        }
+        
+        return false;
+    }
+    
+    public boolean keyDown(int keycode) {
+        if (inputHandler != null) {
+            return inputHandler.keyDown(keycode);
+        }
+        
+        return false;
+    }
+    
+    public boolean keyTyped(char character) {
+        if (inputHandler != null) {
+            return inputHandler.keyTyped(character);
+        }
+        
+        return false;
+    }
+    
     public boolean touchDown(float screenX, float screenY, int pointer, int button) {
         if (inputHandler != null) {
             if (bounds.contains(screenX, screenY)) {
-                inputHandler.touchDown(screenX - bounds.x, screenY - bounds.y, pointer, button);
+                return inputHandler.touchDown(screenX - bounds.x, screenY - bounds.y, pointer, button);
             }
         }
         
@@ -47,7 +72,7 @@ abstract public class Widget {
     public boolean touchUp(float screenX, float screenY, int pointer, int button) {
         if (inputHandler != null) {
             if (bounds.contains(screenX, screenY)) {
-                inputHandler.touchUp(screenX - bounds.x, screenY - bounds.y, pointer, button);
+                return inputHandler.touchUp(screenX - bounds.x, screenY - bounds.y, pointer, button);
             }
         }
         
@@ -57,7 +82,7 @@ abstract public class Widget {
     public boolean touchDragged(float screenX, float screenY, int pointer) {
         if (inputHandler != null) {
             if (bounds.contains(screenX, screenY)) {
-                inputHandler.touchDragged(screenX - bounds.x, screenY - bounds.y, pointer);
+                return inputHandler.touchDragged(screenX - bounds.x, screenY - bounds.y, pointer);
             }
         }
         
@@ -85,5 +110,5 @@ abstract public class Widget {
         return false;
     }
     
-    abstract public void render(SpriteBatch batch, float delta);
+    abstract public void render(SpriteBatch batch, ShapeRenderer sr, float delta);
 }

@@ -9,6 +9,7 @@ package ludowars.core.gui;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import java.util.ArrayList;
 import ludowars.gui.widgets.Widget;
@@ -48,9 +49,9 @@ abstract public class Layer implements InputProcessor {
         widgets.remove(w);
     }
     
-    public void render(SpriteBatch batch, float delta) {
+    public void render(SpriteBatch batch, ShapeRenderer sr, float delta) {
         for (Widget w : widgets) {
-            w.render(batch, delta);
+            w.render(batch, sr, delta);
         }
     }
     
@@ -66,16 +67,31 @@ abstract public class Layer implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
+        for (Widget w: (ArrayList<Widget>)widgets.clone()) {
+            if (w.keyDown(keycode))
+                return true;
+        }
+        
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
+        for (Widget w: (ArrayList<Widget>)widgets.clone()) {
+            if (w.keyUp(keycode))
+                return true;
+        }
+        
         return false;
     }
 
     @Override
     public boolean keyTyped(char character) {
+        for (Widget w: (ArrayList<Widget>)widgets.clone()) {
+            if (w.keyTyped(character))
+                return true;
+        }
+        
         return false;
     }
 

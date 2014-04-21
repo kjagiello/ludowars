@@ -8,6 +8,7 @@ package ludowars.gui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.esotericsoftware.minlog.Log;
 import ludowars.controller.PlayerController;
@@ -73,7 +74,7 @@ public class GameLayer extends Layer {
     }
 
     @Override
-    public void render(SpriteBatch batch, float delta) {
+    public void render(SpriteBatch batch, ShapeRenderer sr, float delta) {
         Gdx.graphics.setTitle("LUDOWARS ~ TPS: " + TICKS_PER_SECOND + ", FPS: " + Gdx.graphics.getFramesPerSecond());
         
         int loops = 0;
