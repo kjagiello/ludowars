@@ -32,7 +32,7 @@ public class ChatWidget extends Widget {
     public ChatWidget() {
         super();
         bounds.width = 300;
-        bounds.height = PADDING * 2 + (MAX_LINES + 1) * FONT_SIZE;
+        bounds.height = PADDING * 2 + (MAX_LINES) * FONT_SIZE - 4;
         
         inputBuffer = "";
         lines = new ArrayList<String>();
@@ -71,25 +71,24 @@ public class ChatWidget extends Widget {
     
     @Override
     public void render(SpriteBatch batch, ShapeRenderer sr, float delta) {
-        batch.end();
-        Gdx.gl.glEnable(GL10.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-        sr.begin(ShapeRenderer.ShapeType.Filled);
-        
-        // chat background
-        sr.setColor(0f, 0f, 0f, 0.4f);
-        sr.rect(bounds.x, bounds.y + 24, getWidth(), getHeight());
-        
-        // chat input
         if (inputActive) {
+            batch.end();
+            Gdx.gl.glEnable(GL10.GL_BLEND);
+            Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+            sr.begin(ShapeRenderer.ShapeType.Filled);
+
+            // chat background
+            sr.setColor(0f, 0f, 0f, 0.4f);
+            sr.rect(bounds.x, bounds.y + 30, getWidth(), getHeight());
+
+            // chat input
             sr.setColor(0f, 0f, 0f, 0.8f);
-            sr.rect(bounds.x, bounds.y, getWidth(), 24);
+            sr.rect(bounds.x, bounds.y, getWidth(), 30);
+
+            sr.end();
+            Gdx.gl.glDisable(GL10.GL_BLEND);
+            batch.begin();
         }
-        
-        sr.end();
-        Gdx.gl.glDisable(GL10.GL_BLEND);
-        batch.begin();
-        
         
         // chat lines
         int i = 1;
@@ -100,7 +99,7 @@ public class ChatWidget extends Widget {
         }
         
         if (inputActive) {
-            font.draw(batch, inputBuffer, bounds.x + PADDING, offsetY + PADDING);
+            font.draw(batch, inputBuffer, bounds.x + PADDING, offsetY + 6);
         }
     }
 }

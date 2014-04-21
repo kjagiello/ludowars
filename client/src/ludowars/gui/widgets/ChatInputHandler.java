@@ -45,8 +45,8 @@ public class ChatInputHandler extends InputHandler {
 
             // deleting characters
             if (keycode == Input.Keys.BACKSPACE) {
-                if (bufferLength > 1) {
-                    chat.setInputBuffer(buffer.substring(0, bufferLength - 2));
+                if (bufferLength > 0) {
+                    chat.setInputBuffer(buffer.substring(0, bufferLength - 1));
                 }
             }
         }
