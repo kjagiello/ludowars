@@ -1,20 +1,17 @@
 package ludowars.core;
 
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.ArrayList;
 import ludowars.core.gui.Screen;
+import ludowars.core.gui.FontManager;
 
 /**
  * Super tasty spaghetti code. Should be eaten with some ketchup.
@@ -34,7 +31,6 @@ public class StartScreen extends Screen {
     int stripeCount = 10;
     long superLudoTimer;
     BitmapFont font, bigFont, miniFont;
-    FreeTypeFontGenerator fgenerator;
     Music bgMusic;
     
     public StartScreen() {
@@ -48,11 +44,10 @@ public class StartScreen extends Screen {
         selectedOption = menuOptions.size() - 1;
         
         ludo = new Texture(Gdx.files.internal("assets/images/ludo.png"));
-        
-        fgenerator = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Minecraftia.ttf"));
-        font = fgenerator.generateFont(40);
-        bigFont = fgenerator.generateFont(50);
-        miniFont = fgenerator.generateFont(12);
+       
+        font = FontManager.getInstance().getFont("Minecraftia.ttf", 40);
+        bigFont = FontManager.getInstance().getFont("Minecraftia.ttf", 50);
+        miniFont = FontManager.getInstance().getFont("Minecraftia.ttf", 12);
         
         bgMusic = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/machine.wav"));
         bgMusic.setLooping(true);

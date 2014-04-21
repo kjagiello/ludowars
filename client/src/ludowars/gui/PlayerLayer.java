@@ -10,9 +10,9 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
+import ludowars.core.gui.FontManager;
 import ludowars.core.gui.Layer;
 import ludowars.gui.widgets.ImageView;
 import ludowars.gui.widgets.InputHandler;
@@ -69,8 +69,7 @@ public class PlayerLayer extends Layer {
             }
         };
 
-        FreeTypeFontGenerator fg = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Minecraftia.ttf"));
-        font = fg.generateFont(36);
+        font = FontManager.getInstance().getFont("Minecraftia.ttf", 36);
     }
 
     @Override
