@@ -33,3 +33,5 @@ Thumbs.db
 /client/nbproject/private/
 /common/nbproject/private/
 /server/nbproject/private/
+/maven-client/target/
+/tmp/mludwig-entreri-86ccda81dbdd/target/

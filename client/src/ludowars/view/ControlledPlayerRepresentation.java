@@ -32,7 +32,7 @@ public class ControlledPlayerRepresentation extends PlayerRepresentation {
         int cameraX = (int)Math.max(camMinX, Math.min(camMaxX, data.position.x));
         int cameraY = (int)Math.max(camMinY, Math.min(camMaxY, data.position.y));
         
-        float lerp = 0.5f;
+        float lerp =0.05f;
         camera.position.x += (int)((cameraX - camera.position.x) * lerp);
         camera.position.y += (int)((cameraY - camera.position.y) * lerp);
     }
